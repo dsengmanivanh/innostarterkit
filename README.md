@@ -46,8 +46,37 @@ $ npm update request --depth 3
 
 It still 5 vulnerabilities with [node sass](https://github.com/sass/node-sass/issues/2355)
 
+## Docker
+
+To create the image
+```
+docker build -t <your username>/innostarterkit .
+```
+
+To run the image
+```
+docker run -p 3000:8080 -d <your username>/innostarterkit
+```
+
+To check inside the container
+```
+docker exec -it <containerId> bash
+```
+
+Build docker compose
+```
+docker-compose build
+```
+
+To up docker compose
+```
+docker-compose up
+```
+
 ## Link
 
 - [Atom](https://www.sitepoint.com/10-essential-atom-add-ons/)
 
 - [Webpack](http://putaindecode.io/fr/articles/js/webpack/)
+
+- [Node JS and Docker](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/)

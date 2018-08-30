@@ -3,7 +3,6 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const glob = require("glob");
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -24,16 +23,6 @@ module.exports = {
           filename: 'index.html',
           template: './src/index.html',
           chunks: ['index','particle']
-        }),
-        new BrowserSyncPlugin({
-            // browse to http://localhost:3000/ during development,
-            // ./public directory is being served
-            host: 'localhost',
-            port: 3000,
-            // proxy the Webpack Dev Server endpoint
-            // (which should be serving on http://localhost:3100/)
-            // through BrowserSync
-            proxy: 'http://localhost:8080/'
         })
     ],
     module: {
@@ -69,7 +58,6 @@ module.exports = {
          }
         ]
     },
-    watch: true,
     watchOptions: {
         ignored: /node_modules/
     },
