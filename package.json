@@ -1,8 +1,8 @@
 {
   "name": "innostarterkit",
   "version": "1.0.0",
-  "description": "",
-  "private": true,
+  "description": "Inno starter kit",
+  "private": false,
   "scripts": {
     "watch": "webpack --watch --info-verbosity verbose --config webpack.dev.js",
     "start": "webpack-dev-server --open --hotOnly --config webpack.dev.js",

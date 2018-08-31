@@ -1,6 +1,8 @@
 # Inno Starter pack
 
-A barebones React app using webpack, sass and hot reloading with browsersync.
+A React app using webpack, sass and hot reloading with browsersync.
+
+[demo](159.122.183.120:31055)
 
 ## Installation
 
@@ -30,13 +32,13 @@ This command line create a dist with your bundle
 Add on webpack.common.js an entry and copy on plugins a new HtmlWebpackPlugin with your entry on chunks.
 
 example:
-
+```
 new HtmlWebpackPlugin({
   template: "./src/new.html",
   filename: "./new.html",
   chunks: ['entry']
 })
-
+```
 
 ## Vulnerabilities
 
@@ -71,6 +73,68 @@ docker-compose build
 To up docker compose
 ```
 docker-compose up
+```
+
+## IBM CLOUD
+
+#### Step 1
+
+[IBM Cloud Container Registry](https://console.bluemix.net/containers-kubernetes/registry/start)
+
+Choose a name for your first namespace, and create that namespace. Use this namespace for the rest of the Quick Start.
+```
+ibmcloud cr namespace-add inno
+```
+
+Choose a repository and tag by which you can identify the image.
+```
+docker tag innostarterkit_app1 registry.eu-de.bluemix.net/inno/innostarterkit_app1:latest
+```
+
+Push the image.
+```
+docker push registry.eu-de.bluemix.net/inno/innostarterkit_app1:latest
+```
+
+[Verify that your image is in your private registry.](https://console.bluemix.net/containers-kubernetes/registry/private
+)
+
+```
+ibmcloud cr image-list
+```
+
+#### Step 2
+
+[Deploying apps into Kubernetes clusters](https://console.bluemix.net/docs/containers/cs_tutorials_apps.html#cs_apps_tutorial)
+
+[example](https://github.com/IBM/container-service-getting-started-wt/tree/master/Lab%201)
+
+
+```
+ibmcloud login -a https://api.eu-de.bluemix.net
+bx cr login
+docker build --tag registry.eu-de.bluemix.net/inno/innostarterkit:v2 .
+docker push registry.eu-de.bluemix.net/inno/innostarterkit:v2
+bx cs cluster-config mycluster
+kubectl run innostarterkit --image=registry.eu-de.bluemix.net/inno/innostarterkit:v2 --record
+kubectl get pods
+kubectl expose deployment/innostarterkit --type="NodePort" --port=8080
+kubectl describe service innostarterkit
+bx cs workers mycluster
+curl 159.122.183.120:31055
+kubectl delete deployment hello-world
+```
+
+See pods, rs and deployments
+```
+kubectl get pods,rs,deployments
+```
+
+[Updates](https://www.linux.com/learn/rolling-updates-and-rollbacks-using-kubernetes-deployments)
+
+```
+kubectl rollout history deployments hello-world => Historique
+kubectl set image deployment/ghost-recorded ghost-recorded=ghost:0.11 --record => MAJ
 ```
 
 ## Link
