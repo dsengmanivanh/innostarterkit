@@ -2,7 +2,7 @@
 
 A React app using webpack, sass and hot reloading with browsersync.
 
-[demo](159.122.183.120:31055)
+[demo](http://159.122.183.120:31055)
 
 ## Installation
 
@@ -134,7 +134,7 @@ kubectl get pods,rs,deployments
 
 ```
 kubectl rollout history deployments hello-world => Historique
-kubectl set image deployment/ghost-recorded ghost-recorded=ghost:0.11 --record => MAJ
+kubectl set image deployment/hello-world hello-world=registry.eu-de.bluemix.net/inno/hello-world:2  --record  => MAJ
 ```
 
 ## Link
