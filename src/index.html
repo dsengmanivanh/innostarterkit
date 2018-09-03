@@ -28,8 +28,30 @@
 			</div>
 			<div id="nlp" class="content-outer-nlp">
 				<div class="content-inner">
-					<h1>innovation Starter Kit</h1>
-					<button class="start" type="button" onclick="gotToNpl()">Start</button>
+					<form id="nl-form" class="nl-form">
+						Je développe en
+						<select>
+							<option value="1" selected>Java</option>
+							<option value="2">Kotlin</option>
+							<option value="3">Javascript</option>
+						</select>
+						et je souhaite créer</br> un
+						<select>
+							<option value="1" selected>backend</option>
+							<option value="2">site web</option>
+							<option value="3">site web réactif</option>
+						</select>
+						avec
+						<select>
+							<option value="1" selected>rien en plus</option>
+							<option value="1">une base de donnée sql</option>
+							<option value="2">une base de données nosql</option>
+						</select>
+						<div class="nl-submit-wrap">
+							<button class="nl-submit" type="submit">Trouve moi une stack</button>
+						</div>
+						<div class="nl-overlay"></div>
+					</form>
 				</div>
 			</div>
 		</main>
