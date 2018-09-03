@@ -133,8 +133,11 @@ kubectl get pods,rs,deployments
 [Updates](https://www.linux.com/learn/rolling-updates-and-rollbacks-using-kubernetes-deployments)
 
 ```
-kubectl rollout history deployments hello-world => Historique
-kubectl set image deployment/hello-world hello-world=registry.eu-de.bluemix.net/inno/hello-world:2  --record  => MAJ
+docker build --tag registry.eu-de.bluemix.net/inno/innostarterkit:v3 .
+docker push registry.eu-de.bluemix.net/inno/innostarterkit:v3
+kubectl set image deployment/innostarterkit innostarterkit=registry.eu-de.bluemix.net/inno/innostarterkit:v3 --record
+kubectl rollout history deployments innostarterkit
+kubectl get rs
 ```
 
 ## Link
