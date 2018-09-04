@@ -21,7 +21,7 @@ body {
 
 /* Color schemes */
 
-.demo-3 {
+.base {
 	--color-text: #fff;
 	--color-bg: #fff;
 	--color-nlp: #E96D65;
@@ -31,7 +31,7 @@ body {
 	--color-bottom-left: magenta;
 }
 
-.completed .demo-3 {
+.completed .base {
 	--color-text: #222;
 	--color-link: #222;
 	--color-link-hover: #aaa;

@@ -7,7 +7,8 @@ const glob = require("glob");
 module.exports = {
     entry: {
         index: './src/js/index.js',
-        particle:glob.sync('./src/js/particle/*.js')
+        particle:glob.sync('./src/js/particle/*.js'),
+        stack: glob.sync("./src/components/stack/*.js")
     },
     output: {
         filename: 'js/[name].bundle.js',
@@ -23,7 +24,12 @@ module.exports = {
           filename: 'index.html',
           template: './src/index.html',
           chunks: ['index','particle']
-        })
+        }),
+        new HtmlWebpackPlugin({
+            template: "./src/app.html",
+            filename: "./stack.html",
+            chunks: ['stack']
+        }),
     ],
     module: {
         rules: [
