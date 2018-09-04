@@ -28,28 +28,27 @@
 			</div>
 			<div id="nlp" class="content-outer-nlp">
 				<div class="content-inner">
-					<form id="nl-form" class="nl-form">
+					<form id="nl-form" class="nl-form" action="/stack.html" method="get">
 						Je développe en
-						<select>
-							<option value="1" selected>Java</option>
-							<option value="2">Kotlin</option>
-							<option value="3">Javascript</option>
+						<select name="language" required>
+							<option value="java" selected>Java</option>
+							<option value="kotlin">Kotlin</option>
+							<option value="javascript">Javascript</option>
 						</select>
 						et je souhaite créer</br> un
-						<select>
-							<option value="1" selected>backend</option>
-							<option value="2">site web</option>
-							<option value="3">site web réactif</option>
+						<select name="type" required>
+							<option value="backend" selected>backend</option>
+							<option value="web">site web</option>
+							<option value="react">site web réactif</option>
 						</select>
 						avec
-						<select>
-							<option value="1" selected>rien en plus</option>
-							<option value="1">une base de donnée sql</option>
-							<option value="2">une base de données nosql</option>
+						<select name="bdd" required>
+							<option value="none" selected>rien en plus</option>
+							<option value="sql">une base de donnée sql</option>
+							<option value="nosql">une base de données nosql</option>
 						</select>
 						<div class="nl-submit-wrap">
 							<button class="nl-submit" type="submit">Trouve moi une stack</button>
-							<a href="stack.html">GOOO</a>
 						</div>
 						<div class="nl-overlay"></div>
 					</form>
