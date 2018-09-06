@@ -135,9 +135,16 @@ kubectl get pods,rs,deployments
 ```
 docker build --tag registry.eu-de.bluemix.net/inno/innostarterkit:v3 .
 docker push registry.eu-de.bluemix.net/inno/innostarterkit:v3
+bx cs cluster-config mycluster
 kubectl set image deployment/innostarterkit innostarterkit=registry.eu-de.bluemix.net/inno/innostarterkit:v3 --record
 kubectl rollout history deployments innostarterkit
 kubectl get rs
+```
+
+Revert
+
+```
+kubectl rollout undo deployments innostarterkit --to-revision=2
 ```
 
 ## Link

@@ -28,7 +28,7 @@ class StackApp extends Component {
                     <Col><TopBar language={language} project={project} bdd={bdd}/></Col>
                 </Row>
                 <Row>
-                    <Col><StackTabs language={language}/></Col>
+                    <Col><StackTabs language={language} project={project} bdd={bdd}/></Col>
                 </Row>
             </Container>
         )
