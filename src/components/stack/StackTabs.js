@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, CardHeader, Row, Col } from 'reactstrap';
+import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, CardHeader, CardBody, CardFooter, Row, Col } from 'reactstrap';
 import classnames from 'classnames';
 import StackModel from './StackModel';
 
@@ -47,15 +47,16 @@ class StackTabs extends Component {
 
         stacks = stacks.concat(dockerFile);
 
-        console.log("whyStacks=",whyStacks);
-
         const whyTools = StackModel.WHY_STACK.filter(why => {
             return tools.some(data => {
                 return data.label.toLowerCase() === why.label.toLowerCase()
             })
         });
 
-
+        let push = StackModel.PUSH;
+        const whyGit = StackModel.WHY_STACK.filter(w => w.label.toLowerCase() === "git")
+            .concat(StackModel.TOOLBOX.filter(w => w.label.toLowerCase() === "git"))
+            .concat(StackModel.CHEAT_SHEET.filter(w => w.tech.toLowerCase() === "git"));
 
         let key = 0;
         return (
@@ -86,7 +87,7 @@ class StackTabs extends Component {
                                                     {
                                                         data.ref.map(r => {
                                                             key = key+1;
-                                                            return <a key={key} className={"btn btn-default"} href={data.ref.filter(d => d.title === r.title)[0].link} target="_blank">{r.title}</a>
+                                                            return <a key={key} className={"btn btn-default"} href={r.link} target="_blank">{r.title}</a>
                                                         })
                                                     }
                                                 </Card>
@@ -142,7 +143,7 @@ class StackTabs extends Component {
                                 })
                             }
                             {
-                                whyStacks.map((data,index) => {
+                                whyStacks.map((data) => {
                                     key = key+1;
                                     return (
                                         <Col sm="12" key={key}>
@@ -159,6 +160,51 @@ class StackTabs extends Component {
                                         </Col>
                                     )
                                 })
+                            }
+                        </Row>
+                    </TabPane>
+                    <TabPane tabId="3">
+                        <Row>
+                            {
+                                push.map((data) => {
+                                    key = key+1;
+                                    return (
+                                        <Col sm="12" key={key}>
+                                            <Card key={key} body className={"card"} >
+                                                <CardHeader>{data.label}</CardHeader>
+                                                <CardBody>
+                                                {
+                                                    data.ref.map(r => {
+                                                        key = key+1;
+                                                        return <CardText key={key}>{r.title}. {r.cmd}</CardText>
+                                                    })
+                                                }
+                                                </CardBody>
+                                            </Card>
+                                        </Col>
+                                    )
+                                })
+                            }
+                            {
+                                whyGit.map((data) => {
+                                        key = key+1;
+                                        return (
+                                            <Col sm="4" key={key}>
+                                                <Card key={key} body className={"card"} >
+                                                    <CardTitle className={"why"}>{data.label}</CardTitle>
+                                                    <CardText>{data.description}</CardText>
+                                                    {
+                                                        data.ref.map(r => {
+                                                            key = key+1;
+                                                            return <a key={key} className={"btn btn-default"} href={r.link} target="_blank">{r.title}</a>
+                                                        })
+                                                    }
+                                                </Card>
+                                            </Col>
+                                        )
+                                    }
+
+                                )
                             }
                         </Row>
                     </TabPane>
