@@ -76,6 +76,6 @@ exports.PUSH = [
 ];
 
 exports.EXPOSE = [
-    { id: '1', project: 'Build and Expose', key: 'Expose', bdd:'none', tech:['springboot'],label:'Building a RESTful Web Service with Springboot', description:'Start with this project and complete it with your class. This project walks you through the process of creating a "hello world" RESTful web service with Spring.', ref:[{title:'package',link:'https://gitlab.com/innostarterkit/java-backend'}]},
-    { id: '2', project: 'Backend', key: 'Backend',bdd:'nosql', tech:['springboot','dockerfile','mongodb'], label:'Building a RESTful Web Service with Springboot and MongoDb', description:'Start with this project and complete it with your class. This project walks you through the process of creating a "hello world" RESTful web service with Spring and MongoDb.', ref:[{title:'package',link:'https://gitlab.com/innostarterkit/java-backend-bdd.git'},{title:'guide',link:'https://spring.io/guides/gs/accessing-data-mongodb/'}]},
+    { id: '1', label: 'Build and Expose package',description:'This job allow you to build and expose your package. You need to fill your git url, version, port and mail before execute it', ref:[{title:'link',link:'http://159.122.183.120:30656/job/InnoStarterKit%20-%20Build%20and%20Expose%20package/'}]},
+    { id: '2', label: 'Update and Expose package',description:'This job allow you to update and expose your package. You need to fill your git url, version and mail before execute it', ref:[{title:'link',link:'http://159.122.183.120:30656/job/InnoStarterKit%20-%20Update%20and%20Expose%20package/'}]},
 ];

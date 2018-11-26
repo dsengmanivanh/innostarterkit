@@ -54,7 +54,7 @@ class StackTabs extends Component {
         });
 
         let push = StackModel.PUSH;
-        //let expose = StackModel.Expose;
+        let expose = StackModel.EXPOSE;
 
         const whyGit = StackModel.WHY_STACK.filter(w => w.label.toLowerCase() === "git")
             .concat(StackModel.TOOLBOX.filter(w => w.label.toLowerCase() === "git"))
@@ -226,6 +226,41 @@ class StackTabs extends Component {
 
                                 )
                             }
+                        </Row>
+                    </TabPane>
+                    <TabPane tabId="4">
+                        <Row>
+                            {
+                                expose.map((data,index) => {
+                                    key = key+1;
+                                    return (
+                                        <Col sm="12" key={key}>
+                                            <Card key={key} body className={"card"} >
+                                                <CardTitle>{data.label}</CardTitle>
+                                                <CardText>{data.description}</CardText>
+                                                {
+                                                    data.ref.map(r => {
+                                                        key = key+1;
+                                                        return <a key={key} className={"btn btn-default"} href={r.link} target="_blank">{r.title}</a>
+                                                    })
+                                                }
+                                            </Card>
+                                        </Col>
+                                    )
+                                })
+                            }
+                            <Col sm="12">
+                                <Card body className={"card"} >
+                                    <CardTitle>Example Build and Expose</CardTitle>
+                                    <img id="clone" height='50%' width='100%' src={"media/build.gif"}/>
+                                </Card>
+                            </Col>
+                            <Col sm="12">
+                                <Card body className={"card"} >
+                                    <CardTitle>Example Update and Expose</CardTitle>
+                                    <img id="clone" height='50%' width='100%' src={"media/update.gif"}/>
+                                </Card>
+                            </Col>
                         </Row>
                     </TabPane>
                 </TabContent>
