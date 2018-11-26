@@ -25,27 +25,27 @@ class StackTabs extends Component {
         const {language, project, bdd} = this.props;
         let tools = StackModel.TOOLBOX;
         let stacks = StackModel.JAVA_STACK;
-        let dockerFile = StackModel.DOCKER_FILE;
         if(language === "java"){
             tools = tools.filter(tool => tool.language.includes("java"));
-            dockerFile = dockerFile.filter(d => d.language === "java");
         }else if(language ==="kotlin"){
             stacks = StackModel.KOTLIN_STACK;
             tools = tools.filter(tool => tool.language.includes("kotlin"));
-            dockerFile = dockerFile.filter(d => d.language === "kotlin");
         }else if(language ==="javascript"){
             stacks = StackModel.JAVASCRIPT_STACK;
             tools = tools.filter(tool => tool.language.includes("javascript"));
-            dockerFile = dockerFile.filter(d => d.language === "javascript");
         }
-        dockerFile = dockerFile.filter(d => d.project.toLowerCase() === project.toLowerCase() && d.bdd.toLowerCase() === bdd.toLowerCase());
-        stacks = stacks.filter(stack => stack.project.toLowerCase() === project.toLowerCase() && stack.bdd.toLowerCase() === bdd.toLowerCase());
+
+        if(bdd ==="sql"){
+            tools = tools.concat(StackModel.BDD.filter(type => type.bdd ==="sql"));
+        }else if(bdd ==="nosql"){
+            tools = tools.concat(StackModel.BDD.filter(type => type.bdd ==="nosql"));
+        }
+
+        stacks = stacks.filter(stack => stack.key.toLowerCase() === project.toLowerCase() && stack.bdd.toLowerCase() === bdd.toLowerCase());
 
         const whyStacks = StackModel.WHY_STACK.filter(why => {
             return stacks.some(stack => stack.tech.map(t => t.toLowerCase()).includes(why.label.toLowerCase()))
         });
-
-        stacks = stacks.concat(dockerFile);
 
         const whyTools = StackModel.WHY_STACK.filter(why => {
             return tools.some(data => {
