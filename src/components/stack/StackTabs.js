@@ -54,9 +54,12 @@ class StackTabs extends Component {
         });
 
         let push = StackModel.PUSH;
+        //let expose = StackModel.Expose;
+
         const whyGit = StackModel.WHY_STACK.filter(w => w.label.toLowerCase() === "git")
             .concat(StackModel.TOOLBOX.filter(w => w.label.toLowerCase() === "git"))
             .concat(StackModel.CHEAT_SHEET.filter(w => w.tech.toLowerCase() === "git"));
+
 
         let key = 0;
         return (
@@ -142,6 +145,12 @@ class StackTabs extends Component {
                                     )
                                 })
                             }
+                            <Col sm="12">
+                                <Card body className={"card"} >
+                                    <CardTitle>Example</CardTitle>
+                                    <img id="clone" height='50%' width='100%' src={"media/clone.gif"}/>
+                                </Card>
+                            </Col>
                             {
                                 whyStacks.map((data) => {
                                     key = key+1;
@@ -185,6 +194,7 @@ class StackTabs extends Component {
                                     )
                                 })
                             }
+
                             {
                                 whyGit.map((data) => {
                                         key = key+1;

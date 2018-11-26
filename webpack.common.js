@@ -7,6 +7,7 @@ const glob = require("glob");
 module.exports = {
     entry: {
         index: './src/js/index.js',
+        app: './src/js/app.js',
         particle:glob.sync('./src/js/particle/*.js'),
         stack: glob.sync("./src/components/stack/*.js")
     },
@@ -28,7 +29,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "./src/app.html",
             filename: "./stack.html",
-            chunks: ['stack']
+            chunks: ['app','stack']
         }),
     ],
     module: {
