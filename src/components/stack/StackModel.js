@@ -68,9 +68,14 @@ exports.DOCKER_FILE = [
 ];
 
 exports.PUSH = [
-    { id: '1',label:'Push on Gitlab or Github', ref: [{title:'1',cmd:'For Deploying, you need to push your project on Gitlab or Github'},{title:'2',cmd:'Here you can find some command lines'}]},
+    { id: '1',label:'Push on Gitlab or Github', ref: [{title:'1',cmd:'For Deploying, you need to push your project on Gitlab or Github'},{title:'2',cmd:'Don\'t forget to remove the old .git !!!'}]},
     { id: '2',label:'Git global setup', ref: [{title:'1',cmd:'git config --global user.name "user name"'},{title:'2',cmd:'git config --global user.email "mail@pole-emploi.fr"'}]},
     { id: '3',label:'Create a new repository', ref: [{title:'1',cmd:'git clone https://gitlab.com/innostarterkit/xxx.git'},{title:'2',cmd:'cd projects'},{title:'3',cmd:'touch README.md'},{title:'4',cmd:'git add README.md'},{title:'5',cmd:'git commit -m "add README"'},{title:'6',cmd:'git push -u origin master'}]},
     { id: '4',label:'Existing folder', ref: [{title:'1',cmd:'cd existing_folder'},{title:'2',cmd:'git init'},{title:'3',cmd:'git remote add origin https://gitlab.com/innostarterkit/test.git'},{title:'4',cmd:'git add .'},{title:'5',cmd:'git commit -m "Initial commit"'},{title:'6',cmd:'git push -u origin master'}]},
     { id: '5',label:'Existing Git repository', ref: [{title:'1',cmd:'cd existing_repo'},{title:'2',cmd:'git remote rename origin old-origin'},{title:'3',cmd:'git remote add origin https://gitlab.com/innostarterkit/test.git'},{title:'4',cmd:'git push -u origin --all'},{title:'5',cmd:'git push -u origin --tags'}]}
+];
+
+exports.EXPOSE = [
+    { id: '1', project: 'Build and Expose', key: 'Expose', bdd:'none', tech:['springboot'],label:'Building a RESTful Web Service with Springboot', description:'Start with this project and complete it with your class. This project walks you through the process of creating a "hello world" RESTful web service with Spring.', ref:[{title:'package',link:'https://gitlab.com/innostarterkit/java-backend'}]},
+    { id: '2', project: 'Backend', key: 'Backend',bdd:'nosql', tech:['springboot','dockerfile','mongodb'], label:'Building a RESTful Web Service with Springboot and MongoDb', description:'Start with this project and complete it with your class. This project walks you through the process of creating a "hello world" RESTful web service with Spring and MongoDb.', ref:[{title:'package',link:'https://gitlab.com/innostarterkit/java-backend-bdd.git'},{title:'guide',link:'https://spring.io/guides/gs/accessing-data-mongodb/'}]},
 ];

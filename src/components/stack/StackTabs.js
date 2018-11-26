@@ -177,6 +177,16 @@ class StackTabs extends Component {
                             {
                                 push.map((data) => {
                                     key = key+1;
+                                    if(data.id === "2"){
+                                        return (
+                                            <Col sm="12">
+                                                <Card body className={"card"} >
+                                                    <CardTitle>Example</CardTitle>
+                                                    <img id="clone" height='50%' width='100%' src={"media/push.gif"}/>
+                                                </Card>
+                                            </Col>
+                                        )
+                                    }
                                     return (
                                         <Col sm="12" key={key}>
                                             <Card key={key} body className={"card"} >
